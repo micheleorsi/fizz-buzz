@@ -41,10 +41,22 @@ public class FizzBuzzApplicationTest
     underTest.run(new String[]{});
   }
 
+  @Test(expected = FizzBuzzApplication.TooManyArgumentsException.class)
+  public void whenTooManyArgs_returnSpecificException()
+  {
+    underTest.run(new String[]{"1","2"});
+  }
+
   @Test(expected = FizzBuzzApplication.IllegalInputException.class)
   public void whenInputIsAString_returnSpecificException()
   {
     underTest.run(new String[]{"ciao"});
+  }
+
+  @Test(expected = FizzBuzzApplication.IllegalInputException.class)
+  public void whenInputIsAStringWithNumber_returnSpecificException()
+  {
+    underTest.run(new String[]{"123ciao"});
   }
 
   @Test

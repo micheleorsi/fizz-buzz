@@ -27,6 +27,10 @@ public class FizzBuzzApplication
     {
       throw new EmptyInputException();
     }
+    if(args.length>1)
+    {
+      throw new TooManyArgumentsException();
+    }
     if(firstArgIsNotANumber(args[0]))
     {
       throw new IllegalInputException();
@@ -35,7 +39,7 @@ public class FizzBuzzApplication
 
   private boolean firstArgIsNotANumber(String arg)
   {
-    return arg.matches("[^0-9]+");
+    return arg.matches(".*[^0-9]+.*");
   }
 
   class EmptyInputException extends RuntimeException
@@ -51,6 +55,14 @@ public class FizzBuzzApplication
     public IllegalInputException()
     {
       super("The input was illegal: you passed a string, but a number is needed");
+    }
+  }
+
+  class TooManyArgumentsException extends RuntimeException
+  {
+    public TooManyArgumentsException()
+    {
+      super("Too many arguments as input: you should pass only one number");
     }
   }
 

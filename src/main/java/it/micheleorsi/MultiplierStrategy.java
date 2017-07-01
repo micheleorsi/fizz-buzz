@@ -26,7 +26,7 @@ class MultiplierStrategy
 
   private boolean aStringValueIsDetected(String text)
   {
-    return text.matches("[^0-9]+");
+    return text.matches(".*[^0-9]+.*");
   }
 
   private boolean isAMultiplier(String originalValue)
