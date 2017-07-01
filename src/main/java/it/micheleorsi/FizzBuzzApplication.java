@@ -35,7 +35,7 @@ public class FizzBuzzApplication
 
   private boolean firstArgIsNotANumber(String arg)
   {
-    return arg.matches("[a-zA-Z\\s]+");
+    return arg.matches("[^0-9]+");
   }
 
   class EmptyInputException extends RuntimeException
