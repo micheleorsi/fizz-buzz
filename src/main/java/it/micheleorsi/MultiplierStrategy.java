@@ -13,14 +13,24 @@ class MultiplierStrategy
 
   public String parse(String originalValue, String text)
   {
-    if(Integer.parseInt(originalValue)%seed==0)
+    if(isAMultiplier(originalValue))
     {
-      if(text.matches("[a-zA-z\\s]+"))
+      if(aStringValueIsDetected(text))
       {
         return text+" "+value;
       }
       return value;
     }
     return text;
+  }
+
+  private boolean aStringValueIsDetected(String text)
+  {
+    return text.matches("[a-zA-z\\s]+");
+  }
+
+  private boolean isAMultiplier(String originalValue)
+  {
+    return Integer.parseInt(originalValue)%seed==0;
   }
 }

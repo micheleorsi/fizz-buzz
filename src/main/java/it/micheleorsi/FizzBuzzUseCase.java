@@ -20,11 +20,11 @@ public class FizzBuzzUseCase
     return IntStream.range(0, number)
                     .map(value -> value + 1)
                     .mapToObj(Integer::toString)
-                    .map(applyMultiplier())
+                    .map(applyMultiplierStrategies())
                     .collect(Collectors.toList());
   }
 
-  private Function<String, String> applyMultiplier()
+  private Function<String, String> applyMultiplierStrategies()
   {
     return value ->
     {

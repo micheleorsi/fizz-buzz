@@ -27,10 +27,15 @@ public class FizzBuzzApplication
     {
       throw new EmptyInputException();
     }
-    if(args[0].matches("[a-zA-Z\\s]+"))
+    if(firstArgIsNotANumber(args[0]))
     {
       throw new IllegalInputException();
     }
+  }
+
+  private boolean firstArgIsNotANumber(String arg)
+  {
+    return arg.matches("[a-zA-Z\\s]+");
   }
 
   class EmptyInputException extends RuntimeException
